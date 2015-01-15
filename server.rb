@@ -1,7 +1,9 @@
-
-
-module HitchHiker
+module HitchHikely
   class Server < Sinatra::Base
+
+    helpers HitchHikely
+    #what is a helper as opposed to another type of file?
+
 
     enable :logging
 
@@ -11,20 +13,27 @@ module HitchHiker
     end
 
     get('/') do
-      render(:erb, :index)
+      redirect to('/stories')
     end
 
-    get('/new') do
-      render(:erb, :new)
+    get('/stories') do
+
+      render(:erb, :index, :layout => :default)
     end
 
-    get('/show') do
-      render(:erb, :show)
+    get('/stories/new') do
+      render(:erb, :new, :layout => :default)
     end
 
-      get('/create')  do
-    render(:erb, :create)
+    get('/stories/:id') do
+      render(:erb, :show, :layout => :default)
     end
+
+    post('/stories')  do
+      redirect to('/stories/new')
+    end
+
+    #i want the following to create a list of all
 
   end
 end

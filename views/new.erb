@@ -1,0 +1,55 @@
+<h1>Write your story</h1>
+
+<div class="box">
+
+  <form method="POST" action="/stories">
+
+    <label>Name or handle:
+      <input type="text" name="author" size="50"/>
+    </label>
+
+    <label>E-Mail (optional):
+      <input type="email" name="email" size="50"/>
+    </label>
+
+    <label>Date your hitch started:
+      <input type="date" name="date_started"/>
+    </label>
+
+    <label>Place your hitch started:
+      City:
+      <input type="text" name="city_start" col="50"/>
+      US-State or Non-Us Country:
+      <input type="text" name="state_start" col="50"/>
+    </label>
+
+     <label>Date your hitch ended:
+      <input type="date" name="date_ended"/>
+    </label>
+
+    <label>Place your hitch ended:
+      City:
+      <input type="text" name="city_end" col="50"/>
+      US-State or Non-Us Country:
+      <input type="text" name="state_end" col="50"/>
+    </label>
+
+    <label>Title of your story:
+       <input type="text" name="title" col="50"/>
+    </label>
+
+    <label>Write all about it:
+        <textarea name="text" col="50" rows="8"/></textarea>
+    </label>
+
+    <label>Tags/Topics:
+      <input type="text"/>
+    </label>
+
+    <button>Save</button>
+
+
+  </form>
+</div>
+
+<p><a href="/stories/:id">See your story</a></p>

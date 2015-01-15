@@ -1,3 +1,4 @@
+require 'pry'
 require 'redis'
 require 'httparty'
 require 'sinatra/base'
