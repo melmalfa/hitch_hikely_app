@@ -13,6 +13,10 @@ module HitchHikely
       $redis = Redis.new
     end
 
+    configure :production do
+      $redis = Redis.new({url: ENV['_URL']})
+    end
+
     get('/') do
       redirect to('/stories')
     end
@@ -41,6 +45,10 @@ module HitchHikely
       # TODO talk to db
       render(:erb, :show, :layout => :default)
     end
+
+    get ('/tags') do
+    end
+
 
   end
 end

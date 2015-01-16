@@ -1,7 +1,6 @@
 require 'pry'
 require 'redis'
 require 'httparty'
-require 'json'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
