@@ -1,9 +1,10 @@
 module HitchHikely
   class Server < Sinatra::Base
 
-    helpers HitchHikely
-    #what is a helper as opposed to another type of file?
-
+    # helpers comes from Sinatra
+    # it's a method, it takes HitchHikely as an argument
+    helpers(HitchHikely::DatabaseHelper)
+    helpers(HitchHikely::MapsApiHelper)
 
     enable :logging
 
@@ -16,24 +17,30 @@ module HitchHikely
       redirect to('/stories')
     end
 
+    # list all stories
     get('/stories') do
-
+      # assigns @stories to an array of all the story hashes
+      @stories = all # all is from HitchHikely::DatabaseHelper
       render(:erb, :index, :layout => :default)
     end
 
+    # show the story form
     get('/stories/new') do
       render(:erb, :new, :layout => :default)
+      redirect to ('/stories/:id')
     end
 
+    # creates the new story
+    post('/stories')  do
+      save(params) # save is from hitchhikely::databasehelper
+      redirect to('/stories')
+    end
+
+    # show me a specific story
     get('/stories/:id') do
+      # TODO talk to db
       render(:erb, :show, :layout => :default)
     end
-
-    post('/stories')  do
-      redirect to('/stories/new')
-    end
-
-    #i want the following to create a list of all
 
   end
 end

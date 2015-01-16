@@ -4,14 +4,14 @@
 
   <form method="POST" action="/stories">
 
-    <label>Name or handle:
+    <label>Name/handle:
       <input type="text" name="author" size="50"/>
     </label>
 
     <label>E-Mail (optional):
       <input type="email" name="email" size="50"/>
     </label>
-
+      <p>Origin Of Your Hitch!</p>
     <label>Date your hitch started:
       <input type="date" name="date_started"/>
     </label>
@@ -20,10 +20,13 @@
       City:
       <input type="text" name="city_start" col="50"/>
       US-State or Non-Us Country:
+      <!-- TODO: change to two letter dropdown -->
       <input type="text" name="state_start" col="50"/>
     </label>
-
-     <label>Date your hitch ended:
+    <!-- TODO: group with date started -->
+       <p>End Of Your Hitch!</p>
+     <label>
+      Date your hitch ended:
       <input type="date" name="date_ended"/>
     </label>
 
@@ -39,11 +42,11 @@
     </label>
 
     <label>Write all about it:
-        <textarea name="text" col="50" rows="8"/></textarea>
+        <textarea name="text" col="50" rows="8"></textarea>
     </label>
 
-    <label>Tags/Topics:
-      <input type="text"/>
+    <label>Tags/Topics (comma separated):
+      <input type="text" name="tags"/>
     </label>
 
     <button>Save</button>
@@ -51,5 +54,3 @@
 
   </form>
 </div>
-
-<p><a href="/stories/:id">See your story</a></p>
