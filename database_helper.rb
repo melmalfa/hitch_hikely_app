@@ -1,7 +1,13 @@
+require 'redis'
+
 module HitchHikely
   module DatabaseHelper
 
     $redis = Redis.new
+
+    def last_story_id
+      $redis.get("story_id")
+    end
 
     def story_ids
       $redis.lrange("story_ids", 0, -1)
@@ -19,17 +25,17 @@ module HitchHikely
       id = $redis.incr("story_id")
       $redis.hmset(
         "story:#{id}",
-        ":author", author,
-        ":email", email,
-        ":date_started", date_started,
-        ":city_start", city_start,
-        ":state_start", state_start,
-        ":date_ended", date_ended,
-        ":city_end", city_end,
-        ":state_end", state_end,
-        ":title", title,
-        ":text", text,
-        ":tags", tags,
+        "author", author,
+        "email", email,
+        "date_started", date_started,
+        "city_start", city_start,
+        "state_start", state_start,
+        "date_ended", date_ended,
+        "city_end", city_end,
+        "state_end", state_end,
+        "title", title,
+        "text", text,
+        "tags", tags,
       )
       $redis.lpush("story_ids", id)
       id

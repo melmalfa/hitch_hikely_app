@@ -38,7 +38,6 @@ module HitchHikely
     # creates the new story
     post('/stories')  do
       id = create_story(
-        params["title"],
         params["author"],
         params["email"],
         params["date_started"],
@@ -47,8 +46,9 @@ module HitchHikely
         params["date_ended"],
         params["city_end"],
         params["state_end"],
+        params["title"],
         params["text"],
-        params["tags"],
+        params["tags"]
         )
       # save(params) # save is from hitchhikely::databasehelper
       redirect to('/stories')
