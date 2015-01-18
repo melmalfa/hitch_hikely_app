@@ -1,3 +1,11 @@
+.container {
+  width: 900px;
+}
+
+.static_column  {
+  float: left;
+}
+
 form  {
   text-align: center;
 

@@ -24,25 +24,41 @@ module HitchHikely
     # list all stories
     get('/stories') do
       # assigns @stories to an array of all the story hashes
-      @stories = all # all is from HitchHikely::DatabaseHelper
+      #
+      @stories = stories
+      puts @stories
       render(:erb, :index, :layout => :default)
     end
 
     # show the story form
     get('/stories/new') do
       render(:erb, :new, :layout => :default)
-      redirect to ('/stories/:id')
     end
 
     # creates the new story
     post('/stories')  do
-      save(params) # save is from hitchhikely::databasehelper
+      id = create_story(
+        params["title"],
+        params["author"],
+        params["email"],
+        params["date_started"],
+        params["city_start"],
+        params["state_start"],
+        params["date_ended"],
+        params["city_end"],
+        params["state_end"],
+        params["text"],
+        params["tags"],
+        )
+      # save(params) # save is from hitchhikely::databasehelper
       redirect to('/stories')
     end
 
     # show me a specific story
     get('/stories/:id') do
       # TODO talk to db
+      puts params
+      @story = story(params[:id])
       render(:erb, :show, :layout => :default)
     end
 
