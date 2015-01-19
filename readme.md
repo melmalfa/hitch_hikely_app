@@ -1,67 +1,19 @@
- :author, :email, :date_started, :city_start, :state_start, :date_ended, :city_end, :state_end, :title, :text, :tags
+ things left to work on/issues:
+ basic css formatting
+ how to make the feed and formatting for an individual entry unifoorm
+ how to create/filter tags
+ how to query/search by item
+ how to make maps api work
+how to edit
+how to delete
+so....basically everything
 
-
-
-
-    # it's story ids just by convention because it's a collection of IDs
-    def story_ids
-      # returns a list of numbers
-      $redis.lrange("story_ids", 0, -1)
-    end
-
-    # it's story here because it's the information about single story
-    def story(id)
-      # returns a hash of story details based on id
-      $redis.hgetall("story:#{id}")
-    end
-
-    def save(story_hash)
-      id = $redis.incr("story_id")
-      $redis.lpush("story_ids", id)
-      $redis.hset("story:#{id}", :author, story_hash[:author])
-      $redis.hset("story:#{id}", :email, story_hash[:email])
-      $redis.hset("story:#{id}", :date_started, story_hash[:date_started])
-      $redis.hset("story:#{id}", :city_start, story_hash[:city_start])
-      $redis.hset("story:#{id}", :state_start, story_hash[:state_start])
-      $redis.hset("story:#{id}", :date_ended, story_hash[:date_ended])
-      $redis.hset("story:#{id}", :city_end, story_hash[:city_end])
-      $redis.hset("story:#{id}", :state_end, story_hash[:state_end])
-      $redis.hset("story:#{id}", :title, story_hash[:title])
-      $redis.hset("story:#{id}", :text, story_hash[:text])
-      $redis.hset("story:#{id}", :tags, story_hash[:tags])
-    end
-
-    def all
-      # returns an array of story hashes
-      # get all the story ids
-      story_ids.map do |id|
-        story(id)
-      end
-      # then get the story hash for each story
-    end
-    # i don't know why this is story instead of stories
-
-
-
-
-
-
-
-
-How do I filter searches of the content?
-Tags
-State/country drop down
-How to edit
-How to delete
+state/country auto drop down?
 
 
 author: GET /mumbles?filter=true&author=kristin.eugenio@ga.co
 date: GET /mumbles?filter=true&date=2015-12-24
 both: GET /mumbles?filter=true&author=eugenius&date=2015-12-2
-
-
-
-
 
 Tagging
 
