@@ -4,9 +4,30 @@
 
 }
 
-.static_column  {
-  float: left;
-  background-color: purple;
+.header  {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: grey;
+    background-image: url("/images/evansheadernarrow.jpeg");
+    background-repeat: no-repeat;
+    background-size: 900px;
+    background-position: center;
+    height: 150px;
+
+}
+
+.header li  {
+  display: inline;
+}
+
+.header label {
+  float: right;
+}
+
+.content  {
+  margin-top: 175px;
 
 }
 
@@ -24,11 +45,19 @@ label {
 
 li  {
   list-style: none;
+  text-decoration: none;
+  color: blue;
 
 }
 
 .feed_box li    {
   display: inline;
+}
+
+.feed_box {
+  margin-bottom: 10px;
+  border: 5px
+  ;
 }
 
 

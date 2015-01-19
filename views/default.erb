@@ -8,21 +8,18 @@
   </head>
   <body>
     <div class="container">
-      <div class="static_column">
+      <div class="header">
         <ul>
         <li><a href="/">hitch.hike.ly</a></li>
-        <li><a href="/stories/new">Write your story</a></li>
-        <li><form>
-            <label>Sort Stories By:
+        <li><a href="/stories/new">write your story</a></li>
+        <li><label>sort stories by:
           <select name="Sort Stories By:">
                 <option value="Author">Author</option>
                 <option value="Places">Places</option>
                 <option value="Tags">Tags</option>
-           </select></label>
-          </form></li>
-
-
-      </div> <!-- ends static_column -->
+           </select></label></li>
+        </ul>
+      </div> <!-- header -->
       <div class="content">
         <%= yield %>
       </div> <!-- ends content-->
