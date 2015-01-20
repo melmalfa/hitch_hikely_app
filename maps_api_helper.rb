@@ -1,11 +1,15 @@
+require 'redis'
+
 module HitchHikely
   module MapsApiHelper
+
+    $redis = Redis.new
 
 
     def google_image_url_for(stories)
         #used to be story_hash
       # should return a url string
-      @stories.each do |story|
+        @stories.each do |story|
         city_start = story["city_start"].gsub(" ", "+")
         city_end = story["city_end"].gsub(" ", "+")
         state_start = story["state_start"].gsub(" ", "+")
