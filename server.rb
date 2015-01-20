@@ -4,7 +4,7 @@ module HitchHikely
     # helpers comes from Sinatra
     # it's a method, it takes HitchHikely as an argument
     helpers(HitchHikely::DatabaseHelper)
-    helpers(HitchHikely::MapsApiHelper)
+    # helpers(HitchHikely::MapsApiHelper)
 
     enable :logging
 
