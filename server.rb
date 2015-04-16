@@ -1,8 +1,6 @@
 module HitchHikely
   class Server < Sinatra::Base
 
-    # helpers comes from Sinatra
-    # it's a method, it takes HitchHikely as an argument
     helpers(HitchHikely::DatabaseHelper)
     # helpers(HitchHikely::MapsApiHelper)
 
@@ -24,7 +22,6 @@ module HitchHikely
     # list all stories
     get('/stories') do
       # assigns @stories to an array of all the story hashes
-      #
       @stories = stories
       puts @stories
       render(:erb, :index, :layout => :default)
@@ -56,7 +53,6 @@ module HitchHikely
 
     # show me a specific story
     get('/stories/:id') do
-      # TODO talk to db
       puts params
       @story = story(params[:id])
       render(:erb, :show, :layout => :default)
@@ -64,7 +60,6 @@ module HitchHikely
 
     get ('/tags') do
     end
-
 
   end
 end

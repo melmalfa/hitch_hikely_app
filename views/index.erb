@@ -1,29 +1,30 @@
 <div class="feed_box">
-<% @stories.each do |story| %>
-  <div class="story">
-    <h1 class="title"><%= story["title"] %></h1>
-    <p class="author">Written by: <%= story["author"] %></p>
+  <% @stories.each do |story| %>
+    <div class="story">
+      <h1 class="title"><%= story["title"] %></h1>
+      <p class="author">Written by: <%= story["author"] %></p>
 <!--     <hr class="before"/> -->
 <!--     <a href="/stories/<%= story["id"] %>"></a> -->
-    <%= story["email"] %>
-    <p>Hitch Origin</p>
+      <%= story["email"] %>
+
+      <p>Hitch Origin</p>
       <ul class="origin">
         <li><%= story["date_started"] %></li>
         <li><%= story["city_start"] %></li>
         <li><%= story["state_start"] %></li>
       </ul>
-    <p>Hitch Ending</p>
+
+      <p>Hitch Ending</p>
       <ul class="end">
         <li><%= story["date_ended"] %></li>
         <li><%= story["city_end"] %></li>
         <li><%= story["state_end"] %></li>
       </ul>
 
-      <div class="main_story">
-        <%= story["text"] %>
-      </div> <!-- end of main_story-->
+        <div class="main_story">
+          <%= story["text"] %>
+        </div> <!-- end of main_story-->
       <p> Tags: <%= story["tags"] %></p>
-
     </div> <!-- end of story-->
   <% end %>
 </div> <!-- end of feed box-->
